@@ -1,8 +1,8 @@
 {
-  "name": "random-data",
+  "name": "tsgenerator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/main.ts",
   "author": "",
   "license": "ISC",
   "devDependencies": {
