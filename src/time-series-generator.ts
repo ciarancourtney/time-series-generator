@@ -11,7 +11,7 @@ export class TimeSeriesGenerator {
         endTimestamp: number,
         limits: number[]
     ) {
-        var values = [];
+        var values: Value[] = [];
         this.prng = new Prng(timeInterval + startTimestamp + endTimestamp + limits[0] + limits[1]);
         this.last = this.prng.random();
         let difference = Math.abs(endTimestamp - startTimestamp);
@@ -22,7 +22,7 @@ export class TimeSeriesGenerator {
         return values;
     }
 
-    private static addStep(values: Value[], timeInterval, startTimestamp) {
+    private static addStep(values: Value[], timeInterval: number, startTimestamp: number) {
         let rand = this.prng.random() * 100 + 15 + this.last;
         this.last = rand * 0.85;
         let index = values.length;
@@ -42,7 +42,7 @@ export class TimeSeriesGenerator {
 
     }
 
-    private static applyLimits(values: Value[], limits): void {
+    private static applyLimits(values: Value[], limits: number[]): void {
         let vMin = values[0].value;
         let vMax = values[0].value;
         values.forEach(value => {

@@ -8,12 +8,12 @@ import {CONFIG_SCHEMA} from './config_schema';
 
 const REQUIRED_VALUES = ['{value}', '{timestamp}'];
 
-function formatSchemaException(error, config: string): string {
+function formatSchemaException(error: tv4.ErrorVar, config: string): string {
     return `Error in ${config}
 ${error.message} in ${error.dataPath}`;
 }
 
-export default function (config): object[] {
+export default function (config: object): object[] {
     let valid = tv4.validate(config, CONFIG_SCHEMA);
     if (!valid) {
         console.error(formatSchemaException(tv4.error, config));

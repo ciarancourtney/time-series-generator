@@ -29,13 +29,13 @@ export function recursiveInterpolate(source, valueObj) {
     return copy;
 };
 
-export function missingValues(obj, values: string[]): string[] {
-    let found = {};
+export function missingValues(obj: object, values: string[]): string[] {
+    let found: object = {};
     values.forEach(value => {
         found[value] = false;
     });
 
-    function treeWalker(obj) {
+    function treeWalker(obj: object) {
         for (let key in obj) {
             if (obj.hasOwnProperty(key)) {
                 switch (typeof obj[key]) {
