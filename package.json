@@ -4,7 +4,7 @@
     "description": "",
     "scripts": {
         "build": "tsc",
-        "test": "jest --config jestconfig.json"
+        "test": "mocha -r ts-node/register test/*.spec.ts"
     },
     "main": "src/main.ts",
     "author": "",
