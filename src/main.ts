@@ -1,4 +1,4 @@
-import * as moment from 'moment/moment';
+import * as moment from 'moment';
 import * as tv4 from 'tv4';
 
 import {DateObject} from './date-object';

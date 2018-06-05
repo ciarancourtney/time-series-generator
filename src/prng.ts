@@ -1,8 +1,8 @@
 // Adapted from http://stackoverflow.com/questions/521295/javascript-random-seeds#answer-19301306
 export class Prng {
-    private m_w: number;
-    private m_z: number;
-    private mask: number;
+    private m_w: number = 0;
+    private m_z: number = 0;
+    private mask: number = 0;
 
     constructor(seed?: number) {
         if (seed) {
