@@ -1,16 +1,10 @@
 ## time-series-generator
 generates reproducible pseudo random time series
 
-### Dependencies
-This project depends on a globally installed [typescript](https://www.npmjs.com/package/typescript) and [typings](https://www.npmjs.com/package/typings)
-
 ### Installation
 
-```sh
-npm install;
-typings install;
-tsc;
-```
+    npm install
+
 
 ### Config File
 

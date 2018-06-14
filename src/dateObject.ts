@@ -1,7 +1,7 @@
 export class DateObject {
     private parts: number[];
 
-    constructor(private str: string) {
+    constructor(str: string) {
         this.parts = str.split("-").map((part) => {
             return parseInt(part, 10);
         });

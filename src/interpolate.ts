@@ -1,4 +1,4 @@
-function interpolate(str: string, object: Object): any {
+function interpolate(str: string, object: any): any {
     let matches = str.match(/{([^{}]*)}/);
     if (matches && object[matches[1]]) {
         return object[matches[1]];
@@ -7,10 +7,10 @@ function interpolate(str: string, object: Object): any {
     }
 }
 
-export function recursiveInterpolate(source, valueObj) {
+export function recursiveInterpolate(source: object, valueObj: object) {
     let copy = JSON.parse(JSON.stringify(source));
 
-    function treeWalker(obj) {
+    function treeWalker(obj: any) {
         for (let key in obj) {
             if (obj.hasOwnProperty(key)) {
                 switch (typeof obj[key]) {
@@ -27,15 +27,15 @@ export function recursiveInterpolate(source, valueObj) {
 
     treeWalker(copy);
     return copy;
-};
+}
 
 export function missingValues(obj: object, values: string[]): string[] {
-    let found: object = {};
+    let found: any = {};
     values.forEach(value => {
         found[value] = false;
     });
 
-    function treeWalker(obj: object) {
+    function treeWalker(obj: any) {
         for (let key in obj) {
             if (obj.hasOwnProperty(key)) {
                 switch (typeof obj[key]) {
@@ -52,11 +52,12 @@ export function missingValues(obj: object, values: string[]): string[] {
     }
 
     treeWalker(obj);
-    let missingValues = [];
+    let missingValues: string[] = [];
     Object.keys(found).forEach(key => {
         if (found[key] === false) {
+            // @ts-ignore
             missingValues.push(key);
         }
     });
     return missingValues;
-};
+}

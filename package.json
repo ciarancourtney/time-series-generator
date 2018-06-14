@@ -1,25 +1,43 @@
 {
     "name": "tsgenerator",
     "version": "1.0.0",
-    "description": "",
+    "main": "./lib/main.js",
+    "typings": "./lib/main.d.ts",
     "scripts": {
+        "prepare": "npm run build",
         "build": "tsc",
-        "test": "mocha -r ts-node/register test/*.spec.ts"
+        "test": "jest"
     },
-    "main": "src/main.ts",
-    "author": "",
+    "files": [
+        "lib"
+    ],
+    "jest": {
+        "moduleFileExtensions": [
+            "ts",
+            "js"
+        ],
+        "transform": {
+            "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+        },
+        "testRegex": "/src/.*\\.spec\\.ts$"
+    },
+    "author": "Ciaran Courtney",
     "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ciarancourtney/tsgenerator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ciarancourtney/tsgenerator/issues"
+    },
+    "description": "Generate deterministic time series data",
     "devDependencies": {
-        "@types/chai": "^4.1.3",
-        "@types/mocha": "^5.2.1",
-        "chai": "^4.1.2",
-        "mocha": "^5.2.0",
-        "moment": "2.22.2",
-        "ts-node": "^6.1.0",
-        "typescript": "2.9.1"
+        "@types/jest": "^23.1.0",
+        "jest": "^23.1.0",
+        "ts-jest": "^22.4.6",
+        "typescript": "^2.9.2"
     },
     "dependencies": {
-        "@types/tv4": "^1.2.29",
-        "tv4": "^1.2.7"
+        "moment": "^2.22.2"
     }
 }

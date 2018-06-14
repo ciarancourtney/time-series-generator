@@ -1,5 +1,5 @@
-import {Value} from './value';
 import {Prng} from './prng';
+import {Value} from './value';
 
 export class TimeSeriesGenerator {
     private static last: number;
@@ -10,11 +10,11 @@ export class TimeSeriesGenerator {
         startTimestamp: number,
         endTimestamp: number,
         limits: number[]
-    ) {
+    ): Value[] {
         var values: Value[] = [];
         this.prng = new Prng(timeInterval + startTimestamp + endTimestamp + limits[0] + limits[1]);
         this.last = this.prng.random();
-        let difference = Math.abs(endTimestamp - startTimestamp);
+        const difference = Math.abs(endTimestamp - startTimestamp);
         for (let i = 0; i <= Math.floor(difference / timeInterval); i++) {
             this.addStep(values, timeInterval, startTimestamp);
         }
@@ -22,7 +22,7 @@ export class TimeSeriesGenerator {
         return values;
     }
 
-    private static addStep(values: Value[], timeInterval: number, startTimestamp: number) {
+    private static addStep(values: Value[], timeInterval: number, startTimestamp: number): void {
         let rand = this.prng.random() * 100 + 15 + this.last;
         this.last = rand * 0.85;
         let index = values.length;
